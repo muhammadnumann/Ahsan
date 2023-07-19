@@ -1,0 +1,10 @@
+export const LOGIN_URL: string = "r=api/account-retailer/login"
+export const ACCOUNT_SETTING: string = "r=api/account-retailer/update-setting"
+export const EDIT_PROFILE: string = 'r=api/account-retailer/edit-profile'
+export const PRODUCT_LIST: string = "r=api/products/listing"
+export const PRODUCT_TAX_LIST: string = "r=api/products-taxes/listing"
+export const ADD_PRODUCT_TAX_LIST: string = "r=api/products-taxes/create"
+export const EDIT_PRODUCT_TAX_LIST: string = "r=api/products-taxes/edit"
+export const CREATE_PRODUCT: string = "r=api/products/create"
+export const PRODUCT_CATEGORY: string = "r=api/products/categories"
+export const PRODUCT_SUBCATEGORY: string = "r=api/category/vendor-subcategories"
