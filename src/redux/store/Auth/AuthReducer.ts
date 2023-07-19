@@ -3,11 +3,16 @@ import { createSlice } from '@reduxjs/toolkit';
 import jwtDecode from 'jwt-decode';
 import moment from 'moment';
 
+interface state {
+  IS_LOGGED: boolean,
+  USER: Object,
+  TOKEN: string,
+}
 
 const initialState = {
-  IS_LOGGED: false,
-  USER: null,
-  TOKEN: null,
+  IS_LOGGED: JSON.parse(localStorage.getItem("isloged") + ''),
+  USER: JSON.parse(localStorage.getItem("userData") + ''),
+  TOKEN: localStorage.getItem("token") + '',
 };
 
 export const authSlice = createSlice({
@@ -15,13 +20,15 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     AuthLogin: (state, action) => {
-      console.log(state)
-      const payload = action.payload;
-      state.USER = payload.email;
-      state.TOKEN = payload.data.password;
+      const payload = action.payload.payload;
+      console.log(payload)
+      state.USER = payload.data.user;
+      state.TOKEN = payload?.data?.user.apiToken;
       state.IS_LOGGED = true
-      const authToken = payload.data.email;
+      state.IS_LOGGED = true
+      const authToken = payload?.data.user.apiToken;
       localStorage.setItem('token', authToken);
+      localStorage.setItem('isloged', JSON.stringify(true));
 
       const user: any = payload.data
       localStorage.setItem(

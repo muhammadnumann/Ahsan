@@ -23,3 +23,8 @@ export const getUserCookie = () => {
 export const removeUserCookie = () => {
   Cookies.remove('userData')
 }
+
+export const getLocalStorage = (data: string) => {
+  const res: any = localStorage.getItem(data)
+  return JSON.parse(res)
+}
